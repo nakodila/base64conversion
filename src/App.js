@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Input, Button } from 'antd'
 
 import { instagramIdToUrlSegment, urlSegmentToInstagramId } from './util.js'
-import './App.css'
+import styles from './App.module.css'
 
 
 function App() {
@@ -32,21 +32,33 @@ function App() {
     }
 
     return (
-      <div>
-        <div>
-          <h3>Shortcode</h3>
-          <div>
-            <Input value={shorcode} onChange={getShortcode} />
-            <Button onClick={convertShortcode}>Convert</Button>
-            <div>{shortcodeToIdResult}</div>
+      <div className={styles.appContainer}>
+        <div className={styles.mainContainer}>
+          <div className={styles.section}>
+            <div className={styles.subSection}>
+              <h3 className={styles.header}>Shortcode to Id</h3>
+              <div className={styles.form}>
+                <Input className={styles.input} value={shorcode} onChange={getShortcode} />
+                <Button onClick={convertShortcode} className={styles.button}>Convert</Button>
+              </div>
+            </div>
+            <div className={styles.subSection}>
+              <h3 className={styles.header}>Result</h3>
+              <div className={styles.result}>{shortcodeToIdResult}</div>
+            </div>
           </div>
-        </div>
-        <div>
-          <h3>Id</h3>
-          <div>
-            <Input value={id} onChange={getId} />
-            <Button onClick={convertId}>Convert</Button>
-            <div>{idToShortcodeResult}</div>
+          <div className={styles.section}>
+            <div className={styles.subSection}>
+              <h3 className={styles.header}>Id to Shortcode</h3>
+              <div className={styles.form}>
+                <Input className={styles.input} value={id} onChange={getId} />
+                <Button onClick={convertId} className={styles.button}>Convert</Button>
+              </div>
+            </div>
+            <div className={styles.subSection}>
+              <h3 className={styles.header}>Result</h3>
+              <div className={styles.result}>{idToShortcodeResult}</div>
+            </div>
           </div>
         </div>
       </div>
