@@ -6,7 +6,7 @@ import styles from './App.module.css'
 
 
 function App() {
-    const [shorcode, setShortcode] = useState('')
+    const [shortcode, setShortcode] = useState('')
     const [id, setId] = useState('')
     const [shortcodeToIdResult, setShortcodeToIdResult] = useState('')
     const [idToShortcodeResult, setIdToShortcodeResult] = useState('')
@@ -22,12 +22,18 @@ function App() {
     }
 
     const convertShortcode = () => {
-      const item = urlSegmentToInstagramId(shorcode)
+      let item = urlSegmentToInstagramId(shortcode)
+      if (shortcode === '') {
+        item = ''
+      }
       setShortcodeToIdResult(item)
     }
 
     const convertId = () => {
-      const item = instagramIdToUrlSegment(id)
+      let item = instagramIdToUrlSegment(id)
+      if (id === '') {
+        item = ''
+      }
       setIdToShortcodeResult(item)
     }
 
@@ -38,7 +44,7 @@ function App() {
             <div className={styles.subSection}>
               <h3 className={styles.header}>Shortcode to Id</h3>
               <div className={styles.form}>
-                <Input className={styles.input} value={shorcode} onChange={getShortcode} />
+                <Input className={styles.input} value={shortcode} onChange={getShortcode} />
                 <Button onClick={convertShortcode} className={styles.button}>Convert</Button>
               </div>
             </div>
