@@ -17,8 +17,14 @@
 .input {
   height: 30px;
   width: 250px;
-  border-color: #37506f;
+  border: none;
   border-radius: 5px;
+  outline: none;
+}
+
+.input:active,
+.input:focus {
+  outline: none;
 }
 
 .section {
@@ -59,7 +65,7 @@
   margin-left: 5px;
   border-radius: 3px;
   width: 100px;
-  border-color: #8D8741;
+  border-color: #49768d;
   background-color: #8D8741;
   color: #FBEEC1;
   font-size: 16px;
